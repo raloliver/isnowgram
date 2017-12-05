@@ -11,5 +11,11 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="auto-scroll" padding>
-  <h1>Enviar Sua Foto</h1>
+  <ion-card>
+      <video id="video" width="100%" autoplay></video>
+      <canvas id="canvas" style="display: none" width="320" height="240"></canvas>
+  </ion-card>
+  <div padding>
+      <button ion-button block large outline>Enviar Foto</button>
+  </div>
 </ion-content>
