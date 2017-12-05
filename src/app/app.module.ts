@@ -4,6 +4,10 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -12,6 +16,17 @@ import { PhotosPage } from './../pages/photos/photos';
 import { TakePicturePage } from './../pages/take-picture/take-picture';
 import { SendPicturePage } from './../pages/send-picture/send-picture';
 import { ProfilePage } from '../pages/profile/profile';
+
+export const environment = {
+  firebase: {
+    apiKey: "AIzaSyCrDHgeoKvkprIvGMqZfkAwRqadQ8C8C5M",
+    authDomain: "isnowgram.firebaseapp.com",
+    databaseURL: "https://isnowgram.firebaseio.com",
+    projectId: "isnowgram",
+    storageBucket: "",
+    messagingSenderId: "49357697257"
+  }
+}
 
 @NgModule({
   declarations: [
