@@ -11,7 +11,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { PhotosPage } from './../pages/photos/photos';
 import { TakePicturePage } from './../pages/take-picture/take-picture';
 import { SendPicturePage } from './../pages/send-picture/send-picture';
-
+import { ProfilePage } from '../pages/profile/profile';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,8 @@ import { SendPicturePage } from './../pages/send-picture/send-picture';
     SignupPage,
     PhotosPage,
     TakePicturePage,
-    SendPicturePage
+    SendPicturePage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,8 @@ import { SendPicturePage } from './../pages/send-picture/send-picture';
     SignupPage,
     PhotosPage,
     TakePicturePage,
-    SendPicturePage
+    SendPicturePage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
