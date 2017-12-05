@@ -34,8 +34,10 @@ export class SignupPage {
 
     submit() {
         let load = this.loadCtrl.create({ content: "Validando Dados..." })
-        load.present()
-        load.dismiss()
+        load.present()        
     }
 
+    goToLogin() {
+        this.navCtrl.setRoot(LoginPage)
+    }
 }

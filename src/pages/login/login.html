@@ -5,10 +5,10 @@
         <h1 text-center class="pacifico title">isNOWgram</h1>
         <ion-list no-lines>
           <ion-item>
-            <ion-input type="email" placeholder="login"></ion-input>
+            <ion-input type="email" placeholder="Informe um email cadastrado"></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input type="password" placeholder="senha"></ion-input>
+            <ion-input type="password" placeholder="Informe a senha cadastrada"></ion-input>
           </ion-item>
         </ion-list>
         <button ion-button block large outline>Entrar</button>
@@ -19,7 +19,7 @@
 <ion-footer>
   <ion-toolbar text-center color="dark">
     <ion-buttons>
-      <button small ion-button block>
+      <button small ion-button block (click)="goToSignup()">
         <small>Novo usuário?
           <a href="#!">Registrar aqui!</a>
         </small>
