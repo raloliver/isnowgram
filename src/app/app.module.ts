@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { PhotosPage } from './../pages/photos/photos';
+import { TakePicturePage } from './../pages/take-picture/take-picture';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PhotosPage } from './../pages/photos/photos';
     HomePage,
     LoginPage,
     SignupPage,
-    PhotosPage
+    PhotosPage,
+    TakePicturePage
   ],
   imports: [
     BrowserModule,
@@ -28,12 +30,13 @@ import { PhotosPage } from './../pages/photos/photos';
     HomePage,
     LoginPage,
     SignupPage,
-    PhotosPage
+    PhotosPage,
+    TakePicturePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
