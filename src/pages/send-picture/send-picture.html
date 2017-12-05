@@ -1,16 +1,52 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-title text-center class="pacifico">
-        isNOWgram
-      </ion-title>
-      <ion-buttons end>
-        <button ion-button icon-only (click)="dismiss()">
-          <ion-icon name="close"></ion-icon>
-        </button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-  <ion-content class="auto-scroll" padding>
-    
-  </ion-content>
-  
+  <ion-toolbar>
+    <ion-title text-center class="pacifico">
+      isNOWgram
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="auto-scroll" padding>
+  <ion-card>
+    <ion-slides>
+      <ion-slide text-center>
+        <img src="https://source.unsplash.com/random/512X512" alt="Nome do usuário" class="inkwell">
+        <small>inkwell</small>
+      </ion-slide>
+      <ion-slide text-center>
+        <img src="https://source.unsplash.com/random/512X512" alt="Nome do usuário" class="willow">
+        <small>willow</small>
+      </ion-slide>
+      <ion-slide text-center>
+        <img src="https://source.unsplash.com/random/512X512" alt="Nome do usuário" class="nashville">
+        <small>nashville</small>
+      </ion-slide>
+    </ion-slides>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-input type="text" placeholder="Título da Foto"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-textarea placeholder="Comentário da Foto" rows="3"></ion-textarea>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    <ion-row no-padding>
+      <ion-col>
+        <ion-buttons end>
+          <button ion-button clear small color="danger" icon-star>
+            <ion-icon name="pin"></ion-icon>
+          </button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <div padding>
+    <button ion-button block large outline>Enviar Foto</button>
+  </div>
+</ion-content>
