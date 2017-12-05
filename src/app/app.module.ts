@@ -10,6 +10,8 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { PhotosPage } from './../pages/photos/photos';
 import { TakePicturePage } from './../pages/take-picture/take-picture';
+import { SendPicturePage } from './../pages/send-picture/send-picture';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { TakePicturePage } from './../pages/take-picture/take-picture';
     LoginPage,
     SignupPage,
     PhotosPage,
-    TakePicturePage
+    TakePicturePage,
+    SendPicturePage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { TakePicturePage } from './../pages/take-picture/take-picture';
     LoginPage,
     SignupPage,
     PhotosPage,
-    TakePicturePage
+    TakePicturePage,
+    SendPicturePage
   ],
   providers: [
     StatusBar,
