@@ -8,10 +8,14 @@ ion-content {
 }
 
 .pacifico {
-    font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico', cursive;
 }
 
 .title {
-    font-size: 3em;
-    line-height: 3em;    
+  font-size: 3em;
+  line-height: 3em;
+}
+
+.toolbar-md {
+  height: $navbar-md-height;
 }

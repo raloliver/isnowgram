@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { ViewController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-take-picture',
-  templateUrl: 'take-picture.html'
+    selector: 'page-take-picture',
+    templateUrl: 'take-picture.html'
 })
 export class TakePicturePage {
 
-  constructor(public navCtrl: NavController) {
+    constructor(private viewCtrl: ViewController) {
 
-  }
+    }
+
+    dismiss() {
+        this.viewCtrl.dismiss()
+    }
 
 }
