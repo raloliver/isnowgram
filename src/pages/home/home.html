@@ -1,14 +1,22 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
+  <ion-toolbar>
+    <ion-title text-center class="pacifico">
+      isNOWgram
     </ion-title>
-  </ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-tabs>
+    <ion-tab [root]="photosTab" tabIcon="home"></ion-tab>
+    <ion-tab [root]="profileTab" tabIcon="search"></ion-tab>
+    <ion-tab [root]="photosTab" tabIcon="add-circle"></ion-tab>
+    <ion-tab [root]="profileTab" tabIcon="heart"></ion-tab>
+    <ion-tab [root]="profileTab" tabIcon="contact"></ion-tab>
+  </ion-tabs>
 </ion-content>
