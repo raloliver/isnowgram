@@ -32,6 +32,13 @@ export class LoginPage {
         Validators.required
       ])]
     })
+
+    //observable to watch user status
+    afAuth.authState.subscribe(user => {
+      if (user) {
+        this.navCtrl.setRoot(HomePage)
+      }
+    })
   }
 
   submit() {
@@ -40,22 +47,22 @@ export class LoginPage {
 
     //promisse of signup
     this.afAuth.auth.signInWithEmailAndPassword(
-        this.form.controls['email'].value,
-        this.form.controls['password'].value)
-        .then(() => {
-            load.dismiss()
-            this.navCtrl.setRoot(HomePage)
+      this.form.controls['email'].value,
+      this.form.controls['password'].value)
+      .then(() => {
+        load.dismiss()
+        this.navCtrl.setRoot(HomePage)
+      })
+      .catch(() => {
+        load.dismiss()
+        let alert = this.alertCtrl.create({
+          title: 'Ops, algo de errado não está certo!',
+          subTitle: 'Usuário ou senha estão incorretos.',
+          buttons: ['OK']
         })
-        .catch(() => {
-            load.dismiss()
-            let alert = this.alertCtrl.create({
-                title: 'Ops, algo de errado não está certo!',
-                subTitle: 'Usuário ou senha estão incorretos.',
-                buttons: ['OK']
-            })
-            alert.present()
-        })
-}
+        alert.present()
+      })
+  }
 
   goToSignup() {
     this.navCtrl.setRoot(SignupPage)
