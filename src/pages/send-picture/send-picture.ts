@@ -112,6 +112,27 @@ export class SendPicturePage {
     submit() {
         let load = this.loadCtrl.create({ content: "Enviado Foto..." })
         load.present()
+        //send picture to firebase
+        this.pictures.push({
+            user: this.user,
+            image: this.picture,
+            filter: this.filter,
+            location: this.location,
+            title: this.form.controls['title'].value,
+            message: this.form.controls['message'].value,
+            date: firebase.database.ServerValue.TIMESTAMP
+        }).then(() => {
+            load.dismiss()
+            this.navCtrl.setRoot(HomePage)
+        }).catch(() => {
+            load.dismiss()
+            let alert = this.alertCtrl.create({
+              title: 'Ops, algo de errado não está certo!',
+              subTitle: 'Usuário ou senha estão incorretos.',
+              buttons: ['OK']
+            })
+            alert.present()
+        })
     }
 
 }

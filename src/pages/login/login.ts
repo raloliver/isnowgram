@@ -57,7 +57,7 @@ export class LoginPage {
         load.dismiss()
         let alert = this.alertCtrl.create({
           title: 'Ops, algo de errado não está certo!',
-          subTitle: 'Usuário ou senha estão incorretos.',
+          subTitle: 'Não foi possível enviar sua foto. Por favor tente novamente mais tarde.',
           buttons: ['OK']
         })
         alert.present()
