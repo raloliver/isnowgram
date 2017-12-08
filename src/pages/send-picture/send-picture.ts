@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
-import { ViewController, AlertController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { ViewController, AlertController, NavParams, Slides } from 'ionic-angular';
 
 @Component({
     selector: 'page-send-picture',
     templateUrl: 'send-picture.html'
 })
 export class SendPicturePage {
+    @ViewChild(Slides) slides: Slides
+
     public location: string = ''
     public picture: string = ''
     public filter: string = 'default'
@@ -59,6 +61,11 @@ export class SendPicturePage {
                 alert.present()
             })
         }
+    }
+
+    changeFilter() {
+        let currentIndex = this.slides.getActiveIndex()
+        this.filter = this.filters[currentIndex]
     }
 
     dismiss() {
