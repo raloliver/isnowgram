@@ -8,6 +8,35 @@ import { ViewController, AlertController, NavParams } from 'ionic-angular';
 export class SendPicturePage {
     public location: string = ''
     public picture: string = ''
+    public filter: string = 'default'
+    public filters: string[] = [
+        "default",
+        "_1977",
+        "aden",
+        "amaro",
+        "brannan",
+        "brooklyn",
+        "clarendon",
+        "gingham",
+        "hudson",
+        "inkwell",
+        "kelvin",
+        "lark",
+        "lofi",
+        "mayfair",
+        "moon",
+        "nashville",
+        "perpetua",
+        "reyes",
+        "rise",
+        "slumber",
+        "stinson",
+        "toaster",
+        "valencia",
+        "walden",
+        "willow",
+        "xpro2"
+    ]
 
     constructor(
         private viewCtrl: ViewController,

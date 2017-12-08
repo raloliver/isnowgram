@@ -13,9 +13,9 @@
 <ion-content class="auto-scroll" padding>
   <ion-card>
     <ion-slides>
-      <ion-slide text-center>
+      <ion-slide *ngFor="let filter of filters" text-center>
         <img src="{{ picture }}" class="{{ filter }}" style="width: 100%">
-        <small>inkwell</small>
+        <small>{{ filter }}</small>
       </ion-slide>
     </ion-slides>
     <ion-card-content>
