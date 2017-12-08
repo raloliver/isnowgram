@@ -3,15 +3,17 @@
     <ion-row align-itens-center justify-content-center>
       <ion-col col-sm-12 col-sm-12 col-md-6>
         <h1 text-center class="pacifico title">isNOWgram</h1>
-        <ion-list no-lines>
-          <ion-item>
-            <ion-input type="email" placeholder="Informe um email cadastrado"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input type="password" placeholder="Informe a senha cadastrada"></ion-input>
-          </ion-item>
-        </ion-list>
-        <button ion-button block large outline>Entrar</button>
+        <form [formGroup]="form">
+          <ion-list no-lines>
+            <ion-item>
+              <ion-input type="email" placeholder="Informe um email cadastrado" maxlength="140" formControlName="email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="password" placeholder="Informe a sua senha cadastrada" maxlength="20" formControlName="password"></ion-input>
+            </ion-item>
+          </ion-list>
+        </form>
+        <button ion-button block large outline [disabled]="!form.valid" (click)="submit()">Entrar</button>
       </ion-col>
     </ion-row>
   </ion-grid>
