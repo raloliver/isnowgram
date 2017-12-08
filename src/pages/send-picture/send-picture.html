@@ -39,8 +39,11 @@
     <ion-row no-padding>
       <ion-col>
         <ion-buttons end>
-          <button ion-button clear small color="danger" icon-star>
-            <ion-icon name="pin"></ion-icon>
+          <button ion-button clear small color="danger" icon-star *ngIf="location == ''" (click)="getLocation()">
+            <ion-icon name="pin" padding></ion-icon> <small>Informar Localização</small>
+          </button>
+          <button ion-button clear small color="danger" icon-star *ngIf="location != ''">
+            <ion-icon name="pin"></ion-icon> {{ location }}
           </button>
         </ion-buttons>
       </ion-col>
