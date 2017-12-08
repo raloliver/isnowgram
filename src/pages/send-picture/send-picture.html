@@ -14,16 +14,8 @@
   <ion-card>
     <ion-slides>
       <ion-slide text-center>
-        <img src="https://source.unsplash.com/random/512X512" alt="Nome do usuário" class="inkwell">
+        <img src="{{ picture }}" class="{{ filter }}" style="width: 100%">
         <small>inkwell</small>
-      </ion-slide>
-      <ion-slide text-center>
-        <img src="https://source.unsplash.com/random/512X512" alt="Nome do usuário" class="willow">
-        <small>willow</small>
-      </ion-slide>
-      <ion-slide text-center>
-        <img src="https://source.unsplash.com/random/512X512" alt="Nome do usuário" class="nashville">
-        <small>nashville</small>
       </ion-slide>
     </ion-slides>
     <ion-card-content>
@@ -40,10 +32,11 @@
       <ion-col>
         <ion-buttons end>
           <button ion-button clear small color="danger" icon-star *ngIf="location == ''" (click)="getLocation()">
-            <ion-icon name="pin" padding></ion-icon> <small>Informar Localização</small>
+            <ion-icon name="pin" padding></ion-icon>
+            <small>Informar Localização</small>
           </button>
           <button ion-button clear small color="danger" icon-star *ngIf="location != ''">
-            <ion-icon name="pin"></ion-icon> {{ location }}
+            <ion-icon name="pin" padding></ion-icon> {{ location }}
           </button>
         </ion-buttons>
       </ion-col>

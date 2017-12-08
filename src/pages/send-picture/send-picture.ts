@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ViewController, AlertController } from 'ionic-angular';
+import { ViewController, AlertController, NavParams } from 'ionic-angular';
 
 @Component({
     selector: 'page-send-picture',
@@ -7,9 +7,13 @@ import { ViewController, AlertController } from 'ionic-angular';
 })
 export class SendPicturePage {
     public location: string = ''
+    public picture: string = ''
 
-    constructor(private viewCtrl: ViewController, private alertCtrl: AlertController) {
-
+    constructor(
+        private viewCtrl: ViewController,
+        private alertCtrl: AlertController,
+        private navParams: NavParams) {
+        this.picture = this.navParams.get('picture') //provide from TakePicturePage
     }
 
     getLocation() {
