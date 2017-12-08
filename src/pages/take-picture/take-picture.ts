@@ -30,8 +30,31 @@ export class TakePicturePage {
     }
 
     takePicture() {
-        let modal = this.modalCtrl.create(SendPicturePage)
-        modal.present()
+        let video = <any>document.getElementById('video')
+        let canvas = <any>document.getElementById('canvas')
+        let context = canvas.getContext('2d')
+
+        //draw image
+        context.drawImage(video, 0, 0, 320, 240)
+
+        //animation to video
+        video.classList.add('animated')
+        video.classList.add('flash')
+
+        //get picture from camera and convert to base64
+        setTimeout(() => {
+            //close modal
+            this.viewCtrl.dismiss()
+
+            //open a new modal with preview picutre
+            let modal = this.modalCtrl.create(SendPicturePage, {
+                picture: canvas.toDataURL()
+            })
+            modal.present()
+        }, 775);
+
+        // let modal = this.modalCtrl.create(SendPicturePage)
+        // modal.present()
     }
 
     dismiss() {
