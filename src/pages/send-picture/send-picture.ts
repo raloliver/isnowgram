@@ -1,5 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { ViewController, AlertController, NavParams, Slides } from 'ionic-angular';
+import { ViewController, AlertController, NavParams, Slides, LoadingController, NavController } from 'ionic-angular';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { HomePage } from './../home/home';
+import * as firebase from 'firebase';
+
 
 @Component({
     selector: 'page-send-picture',
@@ -8,6 +14,9 @@ import { ViewController, AlertController, NavParams, Slides } from 'ionic-angula
 export class SendPicturePage {
     @ViewChild(Slides) slides: Slides
 
+    public user: string = ''
+    public pictures: AngularFireList<any>
+    public form: FormGroup
     public location: string = ''
     public picture: string = ''
     public filter: string = 'default'
@@ -41,10 +50,37 @@ export class SendPicturePage {
     ]
 
     constructor(
+        private navCtrl: NavController,
+        private fb: FormBuilder,
+        private afAuth: AngularFireAuth,
+        private loadCtrl: LoadingController,
         private viewCtrl: ViewController,
         private alertCtrl: AlertController,
-        private navParams: NavParams) {
+        private db: AngularFireDatabase,
+        private navParams: NavParams
+    ) {
+        //connect observable to database
+        this.pictures = db.list('/pictures')
         this.picture = this.navParams.get('picture') //provide from TakePicturePage
+
+        afAuth.authState.subscribe(user => {
+            if (user) {
+                this.user = user.email
+            }
+        })
+
+        this.form = this.fb.group({
+            title: ['', Validators.compose([
+                Validators.minLength(3),
+                Validators.maxLength(30),
+                Validators.required
+            ])],
+            message: ['', Validators.compose([
+                Validators.minLength(3),
+                Validators.maxLength(280),
+                Validators.required
+            ])]
+        })
     }
 
     getLocation() {
@@ -64,12 +100,18 @@ export class SendPicturePage {
     }
 
     changeFilter() {
+        //import change filter slides with ViewChild from angular and Slides from ionic
         let currentIndex = this.slides.getActiveIndex()
         this.filter = this.filters[currentIndex]
     }
 
     dismiss() {
         this.viewCtrl.dismiss()
+    }
+
+    submit() {
+        let load = this.loadCtrl.create({ content: "Enviado Foto..." })
+        load.present()
     }
 
 }

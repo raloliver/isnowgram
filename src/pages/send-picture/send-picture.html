@@ -19,14 +19,16 @@
       </ion-slide>
     </ion-slides>
     <ion-card-content>
-      <ion-list>
-        <ion-item>
-          <ion-input type="text" placeholder="Título da Foto"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-textarea placeholder="Comentário da Foto" rows="3"></ion-textarea>
-        </ion-item>
-      </ion-list>
+      <form [formGroup]="form">
+        <ion-list no-lines>
+          <ion-item>
+            <ion-input type="text" placeholder="Título da Foto" maxlength="30" formControlName="title"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-textarea placeholder="Comentário da Foto" rows="3" maxlength="280" formControlName="message"></ion-textarea>
+          </ion-item>
+        </ion-list>
+      </form>
     </ion-card-content>
     <ion-row no-padding>
       <ion-col>
@@ -43,6 +45,6 @@
     </ion-row>
   </ion-card>
   <div padding>
-    <button ion-button block large outline>Enviar Foto</button>
+    <button ion-button block large outline [disabled]="!form.valid" (click)="submit()">Enviar Foto</button>
   </div>
 </ion-content>
