@@ -12,7 +12,7 @@
 </ion-header>
 <ion-content class="auto-scroll" padding>
   <ion-card>
-    <ion-slides (ionSlideChange)="changeFilter()">
+    <ion-slides (ionSlideDidChange)="changeFilter()">
       <ion-slide *ngFor="let filter of filters" text-center>
         <img src="{{ picture }}" class="{{ filter }}" style="width: 100%">
         <small>{{ filter }}</small>
