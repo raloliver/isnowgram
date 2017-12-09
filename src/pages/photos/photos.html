@@ -1,23 +1,27 @@
 <ion-content class="auto-scroll">
   <ion-grid fixed>
     <ion-row align-itens-center justify-content-center>
-      <ion-col col-12 col-sm-12 col-md-4>
+      <ion-col col-12 col-sm-12 col-md-4 *ngFor="let picture of pictures" class="animated fadeInUp">
         <ion-card>
-          <img src="https://source.unsplash.com/random/512X512" alt="Image Alt">
+          <img src="{{ picture.image }}" alt="{{ picture.title }}" class="{{ picture.filter }}" />
           <ion-card-content>
-            <ion-card-title>Título da Foto</ion-card-title>
-            <p>Comentário da imagem</p>
+            <ion-card-title>{{ picture.title }}</ion-card-title>
+            <p>{{ picture.message }}</p>
             <p>
-              <small>enviada em 25/12/2017 às 23h56 por
-                <strong>raloliver</strong>
+              <small>enviada em {{ picture.date | date: 'dd/MM/yyyy HH:mm' }} por
+                <strong>{{ picture.user }}</strong>
               </small>
             </p>
           </ion-card-content>
           <ion-row no-padding>
             <ion-col>
               <ion-buttons end>
-                <button ion-button clear small color="danger" icon-star>
-                  <ion-icon name="pin" padding></ion-icon> Ver no Mapa
+                <button ion-button clear small color="danger" icon-star *ngIf="location != ''" (click)="showMap(picture.location)">
+                  <ion-icon name="pin" padding></ion-icon>
+                  <small>Ver no Mapa</small>
+                </button>
+                <button ion-button clear small color="danger" icon-star *ngIf="location == ''">
+                  <ion-icon name="pin" padding></ion-icon> Localização não divulgada
                 </button>
               </ion-buttons>
             </ion-col>
