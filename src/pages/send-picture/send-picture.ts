@@ -121,10 +121,13 @@ export class SendPicturePage {
             title: this.form.controls['title'].value,
             message: this.form.controls['message'].value,
             date: firebase.database.ServerValue.TIMESTAMP
-        }).then(() => {
+        }).then(resolve => {
             load.dismiss()
-            this.navCtrl.setRoot(HomePage)
-        }).catch(() => {
+            this.navCtrl.setRoot(HomePage);
+        })
+        //#TODO: catch errors
+        /** 
+        .catch(() => {
             load.dismiss()
             let alert = this.alertCtrl.create({
               title: 'Ops, algo de errado não está certo!',
@@ -133,6 +136,7 @@ export class SendPicturePage {
             })
             alert.present()
         })
+        **/
     }
 
 }
