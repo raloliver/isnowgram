@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { LoadingController } from 'ionic-angular';
+import { LoadingController, ModalController } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-//import { ShowMapPage } from '../show-map/show-map';
+import { ShowLocationPage } from './../show-location/show-location';
 
 @Component({
     selector: 'page-photos',
@@ -10,7 +10,10 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 export class PhotosPage {
     public pictures: any[] = []
 
-    constructor(db: AngularFireDatabase, public loadCtrl: LoadingController) {
+    constructor(
+        private db: AngularFireDatabase,
+        public loadCtrl: LoadingController,
+        private modalCtrl: ModalController) {
         let load = this.loadCtrl.create({ content: "Atualizando Timeline..." })
         load.present()
 
@@ -18,13 +21,11 @@ export class PhotosPage {
             this.pictures = pictures.reverse()
             load.dismiss()
         })
-        /*
-        showLocation(location) {
-            let modal = this.modalCtrl.create(ShowMapPage, { location: location });
-            modal.present();
-        }
-        */
+    }
 
+    showLocation(location) {
+        let modal = this.modalCtrl.create(ShowLocationPage, { location: location });
+        modal.present();
     }
 
 }
