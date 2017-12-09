@@ -14,7 +14,7 @@ export class ShowLocationPage {
     }
 
     ionViewDidLoad() {
-        let iframe = '<iframe style="height: 90vh;" width="100%" height="99%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCrDHgeoKvkprIvGMqZfkAwRqadQ8C8C5M&q=' + this.location + '" allowfullscreen></iframe>'
+        let iframe = '<iframe style="height: 90vh;" width="100%" height="99%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCKoe_A64qn_gZrNd-V2mJ1y8jaqB4DIXI&q=' + this.location + '" allowfullscreen></iframe>'
         document.getElementById('location').innerHTML = iframe
     }
 
